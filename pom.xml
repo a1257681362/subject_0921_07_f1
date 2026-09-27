@@ -32,6 +32,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+        <!-- 引入 AspectJ 后 Boot 在配置阶段注册 internalAutoProxyCreator，
+             Shiro 的 defaultAdvisorAutoProxyCreator 才会按设计退让，
+             避免两套自动代理叠加把事务服务代理成 JDK Proxy 导致注入失败 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
